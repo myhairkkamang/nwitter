@@ -5,7 +5,7 @@ import {
   	LoginInput,
  	LoginButton,
 	LoginGitButton
-} from '../styles/loginStyle'
+} from 'styles/loginStyle'
 
 const Login = () => {
   	return (

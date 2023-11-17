@@ -6,7 +6,6 @@ export const LoginDiv = styled.div`
  	align-items: center;
 	width: 100vw;
 	height: 100vh;
-	margin: 0;
  	background-color: black;
  	gap: 20px;
 `
