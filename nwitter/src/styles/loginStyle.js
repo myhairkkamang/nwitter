@@ -45,7 +45,7 @@ export const LoginButton = styled.button`
   	border-radius: 30px;
 
 `
-export const LoginGitButton = styled.div`
+export const LoginSocialButton = styled.div`
  	display: flex;
  	align-items: center;
   	justify-content: center;
