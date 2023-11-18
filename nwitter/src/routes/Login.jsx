@@ -1,3 +1,8 @@
+import { loginService } from 'fbase';
+import {
+	createUserWithEmailAndPassword,
+	signInWithEmailAndPassword
+} from "firebase/auth";
 import { useState } from 'react'
 import {
 	LoginDiv,
@@ -11,13 +16,34 @@ import {
 const Login = () => {
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
+	const [newAccount, setNewAccount] = useState(true);
 
 	const onChange = (event) => {
-		console.log(event.target.name);
+		const {
+			target: {name, value},
+		} = event;
+	
+		if (name === "email") {
+			setEmail(value);
+		}
+		if (name === "password") {
+			setPassword(value);
+		}
 	};
 
-	const onSubmit = (event) => {
+	const onSubmit = async(event) => {
 		event.preventDefault();
+		try {
+			let data;
+			if (newAccount) {
+				data = await createUserWithEmailAndPassword(loginService, email, password);
+			}
+			data = await signInWithEmailAndPassword(loginService, email, password);
+			console.log(data);
+		}
+		catch (error) {
+			console.log(error);
+		}
 	};
 	
   	return (
@@ -36,7 +62,7 @@ const Login = () => {
 					placeholder="password" required
 					value={password} 
 					onChange={onChange}/>
-        		<LoginButton type="submit">Login</LoginButton>
+        		<LoginButton type="submit" value={newAccount ? "Create Account" : "Log In"} >Login</LoginButton>
        			<LoginSocialButton>Continue with Google</LoginSocialButton>
 				<LoginSocialButton>Continue with Github</LoginSocialButton>
       		</LoginForm>
