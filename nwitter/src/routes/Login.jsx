@@ -1,7 +1,10 @@
-import { loginService } from 'fbase';
+import { loginService, firebaseInstance } from 'fbase';
 import {
 	createUserWithEmailAndPassword,
-	signInWithEmailAndPassword
+	signInWithEmailAndPassword,
+	GoogleAuthProvider,
+	GithubAuthProvider,
+	signInWithPopup
 } from "firebase/auth";
 import { useState } from 'react'
 import {
@@ -47,8 +50,21 @@ const Login = () => {
 		}
 	};
 
-	
-
+	const onSocialClick = async (event) => {
+		console.log(event.target.name);
+		const {
+			target: { name },
+		} = event;
+		let provider;
+		if (name === "google") {
+			provider = new GoogleAuthProvider();
+		}
+		if (name === "github") {
+			provider = new GithubAuthProvider();
+		}
+		const data = await signInWithPopup(loginService, provider);
+		console.log(data);
+	};
 	
   	return (
     	<LoginDiv>
@@ -66,9 +82,13 @@ const Login = () => {
 					placeholder="password" required
 					value={password} 
 					onChange={onChange}/>
-        		<LoginButton type="submit" value={newAccount ? "Create Account" : "Log In"} /> //로그인 추가구현 필요
-       			<LoginSocialButton>Continue with Google</LoginSocialButton>
-				<LoginSocialButton>Continue with Github</LoginSocialButton>
+        		<LoginButton type="submit" value={newAccount ? "Create Account" : "Log In"} /> 
+       			<LoginSocialButton onClick={onSocialClick} name="google" >
+					Continue with Google
+				</LoginSocialButton>
+				<LoginSocialButton onClick={onSocialClick} name="github" >
+					Continue with Github
+				</LoginSocialButton>
       		</LoginForm>
 		</LoginDiv>
   	);
