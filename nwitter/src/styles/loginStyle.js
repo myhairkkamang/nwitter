@@ -9,6 +9,7 @@ export const LoginDiv = styled.div`
  	background-color: black;
  	gap: 20px;
 `
+
 export const LoginTitle = styled.div`
 	color: white;
 	font-size: 40px;
@@ -32,19 +33,21 @@ export const LoginInput = styled.input`
  	border: none;
  	border-radius: 30px;
 `
-export const LoginButton = styled.button`
+
+export const LoginButton = styled.input`
   	display: flex;
  	align-items: center;
  	justify-content: center;
   	width: 330px;
  	height: 35px;
  	padding: 15px;
+	font-size: 16px
   	font-color: white;
   	background-color: #00ACEE;
  	border: none;
   	border-radius: 30px;
-
 `
+
 export const LoginSocialButton = styled.div`
  	display: flex;
  	align-items: center;

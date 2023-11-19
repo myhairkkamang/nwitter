@@ -17,6 +17,7 @@ const Login = () => {
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 	const [newAccount, setNewAccount] = useState(true);
+	const [error, setError] = useState("");
 
 	const onChange = (event) => {
 		const {
@@ -42,9 +43,12 @@ const Login = () => {
 			console.log(data);
 		}
 		catch (error) {
-			console.log(error);
+			setError(error.message);
 		}
 	};
+
+	
+
 	
   	return (
     	<LoginDiv>
@@ -62,7 +66,7 @@ const Login = () => {
 					placeholder="password" required
 					value={password} 
 					onChange={onChange}/>
-        		<LoginButton type="submit" value={newAccount ? "Create Account" : "Log In"} >Login</LoginButton>
+        		<LoginButton type="submit" value={newAccount ? "Create Account" : "Log In"} /> //로그인 추가구현 필요
        			<LoginSocialButton>Continue with Google</LoginSocialButton>
 				<LoginSocialButton>Continue with Github</LoginSocialButton>
       		</LoginForm>
