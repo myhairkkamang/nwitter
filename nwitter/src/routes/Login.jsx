@@ -75,13 +75,15 @@ const Login = () => {
 					type="email" 
 					placeholder="Email" required
 					value={email} 
-					onChange={onChange}/>
+					onChange={onChange}
+				/>
         		<LoginInput 
 					name="password" 
 					type="password" 
 					placeholder="password" required
 					value={password} 
-					onChange={onChange}/>
+					onChange={onChange}
+				/>
         		<LoginButton type="submit" value={newAccount ? "Create Account" : "Log In"} /> 
        			<LoginSocialButton onClick={onSocialClick} name="google" >
 					Continue with Google
