@@ -6,7 +6,10 @@ import {
     HomeFormSubmit,
 	HomeInputText,
   	HomeButtonSubmit,
-    HomeInputPhoto
+    HomeInputPhoto,
+    HomeListDiv,
+    HomeListId,
+    HomeListText
 } from 'styles/homeStyle'
 
 const Home = () => {
@@ -52,9 +55,13 @@ const Home = () => {
                     placeholder="What's on ypur mind" 
                     maxLength={120} 
                 />
-                <HomeButtonSubmit  type="submit" value="Nweet" />
+                <HomeButtonSubmit  type="submit" value="" />
             </HomeFormSubmit>
-            <HomeInputPhoto />
+            <HomeListDiv>
+                {nweets.map((nweet) => (
+                    <HomeListText>{nweet.text}</HomeListText>
+                ))}
+            </HomeListDiv>
         </HomeDiv>
     )
 }

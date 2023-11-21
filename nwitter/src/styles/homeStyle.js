@@ -44,5 +44,37 @@ export const HomeButtonSubmit = styled.input`
 `
 
 export const HomeInputPhoto = styled.input`
+    display: flex;
+ 	align-items: center;
+ 	justify-content: center;
+  	width: 35px;
+ 	height: 35px;
+ 	padding: 15px;
+    font-size: 10px
+  	font-color: white;
+    background-color: #00ACEE;
+    border: none;
+  	border-radius: 100px;
 `
 
+export const HomeListDiv = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+`
+
+export const HomeListId = styled.div`
+`
+
+export const HomeListText = styled.h4`
+    width: 320px;
+    height: 35px;
+    align-items: center;
+ 	justify-content: center;
+    font-size: 16px
+    padding: 10px;
+    background-color: white;
+    border: none;
+    border-radius: 10px;
+`
